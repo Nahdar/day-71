@@ -12,7 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 import os
 # Optional: add contact me email functionality (Day 60)
-# import smtplib
+import smtplib
 
 
 '''
@@ -277,6 +277,7 @@ def about():
 
 MAIL_ADDRESS = os.environ.get("EMAIL_KEY")
 MAIL_APP_PW = os.environ.get("PASSWORD_KEY")
+MAIL_TARGET = os.environ.get("EMAIL_TARGET")
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -292,7 +293,7 @@ def send_email(name, email, phone, message):
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MAIL_ADDRESS, MAIL_APP_PW)
-        connection.sendmail(MAIL_ADDRESS, MAIL_APP_PW, email_message)
+        connection.sendmail(MAIL_ADDRESS, MAIL_TARGET, email_message)
 
 
 if __name__ == "__main__":
