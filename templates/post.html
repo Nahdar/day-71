@@ -12,7 +12,7 @@
           <span class="meta"
             >Posted by
             <!-- Changed from post.author -->
-            <a href="#">{{ post.author.name }}</a>
+            <a href="{{ url_for('about') }}">{{ post.author.name }}</a>
             on {{ post.date }}
           </span>
         </div>
