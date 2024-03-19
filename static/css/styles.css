@@ -10851,5 +10851,6 @@ header.masthead .post-heading .meta a {
 /* Flash Message Styling */
 .flash {
     color: #ee6f57;
+    font-size: smaller;
     text-align: center;
 }
